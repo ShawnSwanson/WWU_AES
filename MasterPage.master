@@ -1,0 +1,85 @@
+﻿<%@ Master Language="C#" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+
+    <link href="chosen/style.css" rel="stylesheet" />
+    <link href="chosen/prism.css" rel="stylesheet" />
+    <link href="chosen/chosen.css" rel="stylesheet" />
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+    <style>
+        @media print {
+            .PrintNone {
+                position: absolute; left: -999em;
+            }
+            .noBreak{
+                page-break-inside:avoid;
+            }
+        }
+    </style>
+
+    <title>WWU Applied Engagement System</title>
+</head>
+<body>
+    <script>
+        $(".chosen-select").chosen();
+    </script>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div class="container-fluid">
+            <%--Header--%>
+            <div class="row text-center hidden-print PrintNone">
+                <h1>Western Washington University Applied Engagement System</h1>
+            </div>
+            <h2 class="visible-print-block">Western Washington University Applied Engagment System</h2>
+            <%--Body--%>
+            <div class="row">
+                <%--Sidebar--%>
+                <div class="col-md-2 PrintNone">
+                    <div class="jumbotron">
+                        <asp:ContentPlaceHolder ID="cphNavigation" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+                <%--Main Content--%>
+                <div class="col-md-10">
+                    <%--<div class="jumbotron">--%>
+                    <asp:ContentPlaceHolder ID="cphBody" runat="server">
+                    </asp:ContentPlaceHolder>
+                    <%--</div>--%>
+                </div>
+            </div>
+            <%--Footer--%>
+            <div class="row text-center PrintNone">
+                <asp:ContentPlaceHolder ID="cphFooter" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+
+
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <script src="../chosen/chosen.jquery.js"></script>
+    <script src="../chosen/chosen.jquery.js"></script>
+    <script src="../chosen/prism.js"></script>
+    <script type="text/javascript">
+        var config = {
+            '.chosen-select': {},
+            '.chosen-select-deselect': { allow_single_deselect: true },
+            '.chosen-select-no-single': { disable_search_threshold: 0 },
+            '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+            '.chosen-select-width': { width: "95%" }
+        }
+        for (var selector in config) {
+            $(selector).chosen(config[selector]);
+        }
+    </script>
+</body>
+</html>
