@@ -60,7 +60,7 @@
                     <asp:DetailsView ID="DetailsView1" runat="server" Width="80%" AutoGenerateRows="False" DataKeyNames="UniversityPartnerID" DataSourceID="sdsDetail" HorizontalAlign="Center" GridLines="None" CssClass="table table-striped table-hover">
                         <Fields>
                             <asp:BoundField DataField="UniversityPartnerID" HeaderText="UniversityPartnerID" InsertVisible="False" ReadOnly="True" SortExpression="UniversityPartnerID" />
-                            <asp:TemplateField HeaderText="Organization Name" SortExpression="OrganizationName">
+                            <asp:TemplateField HeaderText="Organization Name*" SortExpression="OrganizationName">
                                 <EditItemTemplate>
                                     <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("OrganizationName") %>' CssClass="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Field is Required" ControlToValidate="TextBox3"></asp:RequiredFieldValidator>
@@ -150,7 +150,7 @@
                                     <asp:Label ID="Label10" runat="server" Text='<%# Bind("Phone") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="WWUEntityID" SortExpression="WWUEntityID">
+                            <asp:TemplateField HeaderText="WWUEntityID*" SortExpression="WWUEntityID">
                                 <EditItemTemplate>
                                     <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="dropDownWWU" DataTextField="EntityName" DataValueField="WWUEntityID" SelectedValue='<%# Bind("WWUEntityID") %>' CssClass="form-control chosen-select"></asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Field is Required" ControlToValidate="DropDownList1"></asp:RequiredFieldValidator>

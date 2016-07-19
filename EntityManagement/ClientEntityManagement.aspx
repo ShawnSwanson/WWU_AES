@@ -58,7 +58,7 @@
                     <asp:DetailsView ID="DetailsView1" runat="server" Width="80%" AutoGenerateRows="False" DataKeyNames="ClientID" DataSourceID="sdsDetail" HorizontalAlign="Center" GridLines="None" CssClass="table table-striped table-hover">
                         <Fields>
                             <asp:BoundField DataField="ClientID" HeaderText="ClientID" InsertVisible="False" ReadOnly="True" SortExpression="ClientID" />
-                            <asp:TemplateField HeaderText="Organization Name" SortExpression="OrganizationName">
+                            <asp:TemplateField HeaderText="Organization Name*" SortExpression="OrganizationName">
                                 <EditItemTemplate>
                                     <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("OrganizationName") %>' CssClass="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Field is Required" ControlToValidate="TextBox3"></asp:RequiredFieldValidator>
@@ -71,7 +71,7 @@
                                     <asp:Label ID="Label5" runat="server" Text='<%# Bind("OrganizationName") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Contact Name" SortExpression="ContactName">
+                            <asp:TemplateField HeaderText="Contact Name*" SortExpression="ContactName">
                                 <EditItemTemplate>
                                     <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("ContactName") %>' CssClass="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Field is Required" ControlToValidate="TextBox5"></asp:RequiredFieldValidator>
@@ -150,7 +150,7 @@
                                     <asp:Label ID="Label4" runat="server" Text='<%# Bind("Phone") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Select your WWU Entity" SortExpression="WWUEntityID">
+                            <asp:TemplateField HeaderText="Select your WWU Entity*" SortExpression="WWUEntityID">
                                 <EditItemTemplate>
                                     <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control chosen-select" DataSourceID="sdsDropDownWWU" DataTextField="EntityName" DataValueField="WWUEntityID" SelectedValue='<%# Bind("WWUEntityID") %>'></asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Field is required" ControlToValidate="DropDownList1"></asp:RequiredFieldValidator>
@@ -165,7 +165,7 @@
                                     <asp:Label ID="Label1" runat="server" Text='<%# Bind("WWUEntityID") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Client Type" SortExpression="ClientType">
+                            <asp:TemplateField HeaderText="Client Type*" SortExpression="ClientType">
                                 <EditItemTemplate>
                                     <asp:DropDownList ID="DropDownList2" runat="server" SelectedValue='<%# Bind("ClientType") %>' CssClass="form-control">
                                         <asp:ListItem>Internal to WWU</asp:ListItem>

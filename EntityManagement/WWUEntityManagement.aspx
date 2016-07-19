@@ -74,7 +74,7 @@
                                         <asp:Label ID="Label5" runat="server" Text='<%# Bind("Wnumber") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Entity Name" SortExpression="EntityName">
+                                <asp:TemplateField HeaderText="Entity Name*" SortExpression="EntityName">
                                     <EditItemTemplate>
                                         <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("EntityName") %>' CssClass="form-control"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Field is Required" ControlToValidate="TextBox1"></asp:RequiredFieldValidator>
@@ -87,7 +87,7 @@
                                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("EntityName") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Entity Purpose" SortExpression="EntityPurpose">
+                                <asp:TemplateField HeaderText="Entity Purpose*" SortExpression="EntityPurpose">
                                     <EditItemTemplate>
                                         <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("EntityPurpose") %>' CssClass="form-control" TextMode="MultiLine" Height="85px"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Field is Required" ControlToValidate="TextBox2"></asp:RequiredFieldValidator>
@@ -100,7 +100,7 @@
                                         <asp:Label ID="Label2" runat="server" Text='<%# Bind("EntityPurpose") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Contact Person" SortExpression="ContactPerson">
+                                <asp:TemplateField HeaderText="Contact Person*" SortExpression="ContactPerson">
                                     <EditItemTemplate>
                                         <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("ContactPerson") %>' CssClass="form-control"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Field is Required" ControlToValidate="TextBox3"></asp:RequiredFieldValidator>
@@ -113,7 +113,7 @@
                                         <asp:Label ID="Label3" runat="server" Text='<%# Bind("ContactPerson") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Activity Type" SortExpression="ActivityType">
+                                <asp:TemplateField HeaderText="Activity Type*" SortExpression="ActivityType">
                                     <EditItemTemplate>
                                         <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control" selectedValue='<%# Bind("ActivityType") %>'>
                                             <asp:ListItem>Course: Credit</asp:ListItem>
