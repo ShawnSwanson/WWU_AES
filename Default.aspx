@@ -24,7 +24,7 @@
                     <h3>
                         <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Reporting/WWUEntityReporting.aspx">WWU Entity</asp:HyperLink><br />
                         <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Reporting/ProjectReporting.aspx">Project</asp:HyperLink><br />
-                        <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Reporting/UniversityPartnerReporting.aspx">University Partner</asp:HyperLink><br />
+                        <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Reporting/PartnerReporting.aspx">University Partner</asp:HyperLink><br />
                         <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Reporting/ClientReporting.aspx">Clients</asp:HyperLink>
                     </h3>
                 </div>
@@ -39,7 +39,7 @@
                     <h3>
                         <asp:HyperLink ID="hlWWUEntityManagement" runat="server" NavigateUrl="~/EntityManagement/WWUEntityManagement.aspx">WWU Entities</asp:HyperLink><br />
                         <asp:HyperLink ID="hlClientManagement" runat="server" NavigateUrl="~/EntityManagement/ClientEntityManagement.aspx">Client Entities</asp:HyperLink><br />
-                        <asp:HyperLink ID="hlUniversityPartnerManagement" runat="server" NavigateUrl="~/EntityManagement/UniversityPartnersManagement.aspx">University Partner Entities</asp:HyperLink><br />
+                        <asp:HyperLink ID="hlUniversityPartnerManagement" runat="server" NavigateUrl="~/EntityManagement/PartnersManagement.aspx">University Partner Entities</asp:HyperLink><br />
                         <asp:HyperLink ID="hlProjectManagement" runat="server" NavigateUrl="~/EntityManagement/ProjectManagement.aspx">Project Entities</asp:HyperLink>
                     </h3>
                 </div>
