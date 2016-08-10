@@ -93,7 +93,6 @@
                                                     <h2><%# Eval("EntityName") %></h2>
                                                 </div>
                                                 <div class="col-sm-4 text-right">
-                                                    <h4><%# Eval("Wnumber") %></h4>
                                                     <h4>WWU Entity ID: <%# Eval("WWUEntityID") %></h4>
                                                 </div>
                                             </div>
@@ -129,46 +128,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                            <%--                            <span style="">WWUEntityID:
-                            <asp:Label ID="WWUEntityIDLabel" runat="server" Text='<%# Eval("WWUEntityID") %>' />
-                                <br />
-                                Wnumber:
-                            <asp:Label ID="WnumberLabel" runat="server" Text='<%# Eval("Wnumber") %>' />
-                                <br />
-                                EntityName:
-                            <asp:Label ID="EntityNameLabel" runat="server" Text='<%# Eval("EntityName") %>' />
-                                <br />
-                                EntityPurpose:
-                            <asp:Label ID="EntityPurposeLabel" runat="server" Text='<%# Eval("EntityPurpose") %>' />
-                                <br />
-                                ContactPerson:
-                            <asp:Label ID="ContactPersonLabel" runat="server" Text='<%# Eval("ContactPerson") %>' />
-                                <br />
-                                RelationshipType:
-                            <asp:Label ID="RelationshipTypeLabel" runat="server" Text='<%# Eval("RelationshipType") %>' />
-                                <br />
-                                ActivityType:
-                            <asp:Label ID="ActivityTypeLabel" runat="server" Text='<%# Eval("ActivityType") %>' />
-                                <br />
-                                <asp:CheckBox ID="ClientIsInternalWWUCheckBox" runat="server" Checked='<%# Eval("ClientIsInternalWWU") %>' Enabled="false" Text="ClientIsInternalWWU" />
-                                <br />
-                                <asp:CheckBox ID="ClientIsForProfitCheckBox" runat="server" Checked='<%# Eval("ClientIsForProfit") %>' Enabled="false" Text="ClientIsForProfit" />
-                                <br />
-                                <asp:CheckBox ID="ClientIsNonProfitCheckBox" runat="server" Checked='<%# Eval("ClientIsNonProfit") %>' Enabled="false" Text="ClientIsNonProfit" />
-                                <br />
-                                <asp:CheckBox ID="ClientIsGovernmentCheckBox" runat="server" Checked='<%# Eval("ClientIsGovernment") %>' Enabled="false" Text="ClientIsGovernment" />
-                                <br />
-                                <asp:CheckBox ID="ClientIsTribalCheckBox" runat="server" Checked='<%# Eval("ClientIsTribal") %>' Enabled="false" Text="ClientIsTribal" />
-                                <br />
-                                <asp:CheckBox ID="EngagementIsProjectCheckBox" runat="server" Checked='<%# Eval("EngagementIsProject") %>' Enabled="false" Text="EngagementIsProject" />
-                                <br />
-                                <asp:CheckBox ID="EngagementIsQuarterCheckBox" runat="server" Checked='<%# Eval("EngagementIsQuarter") %>' Enabled="false" Text="EngagementIsQuarter" />
-                                <br />
-                                <asp:CheckBox ID="EngagementIsContractCheckBox" runat="server" Checked='<%# Eval("EngagementIsContract") %>' Enabled="false" Text="EngagementIsContract" />
-                                <br />
-                                <br />
-                            </span>--%>
                         </ItemTemplate>
                     </asp:ListView>
                     <h2>Projects</h2>
@@ -207,9 +166,9 @@
                                             <div class="col-sm-6">
                                                 <h3>Project Start: <%# Eval("StartOfEngagement", "{0:d}") %><br />
                                                     Project End: <%# Eval("EndOfEngagement", "{0:d}") %><br />
-                                                    Faculty: <%# Eval("NumberOfFaculty") %><br />
-                                                    Staff: <%# Eval("NumberOfStaff") %><br />
-                                                    Students: <%# Eval("NumberOfStudents") %><br />
+                                                    Faculty: <%# Eval("NumberOfFaculty") %> | Hours: <%# Eval("FacultyHours") %><br />
+                                                    Staff: <%# Eval("NumberOfStaff") %> | Hours: <%# Eval("StaffHours") %><br />
+                                                    Students: <%# Eval("NumberOfStudents") %> | Hours: <%# Eval("StudentHours") %><br />
                                                     Relationship Type: <%# Eval("RelationshipType") %>
                                                 </h3>
                                             </div>
@@ -223,53 +182,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <%--<span style="">ProjectID:
-                            <asp:Label ID="ProjectIDLabel" runat="server" Text='<%# Eval("ProjectID") %>' />
-                                <br />
-                                ProjectName:
-                            <asp:Label ID="ProjectNameLabel" runat="server" Text='<%# Eval("ProjectName") %>' />
-                                <br />
-                                ClientID:
-                            <asp:Label ID="ClientIDLabel" runat="server" Text='<%# Eval("ClientID") %>' />
-                                <br />
-                                WWUEntityID:
-                            <asp:Label ID="WWUEntityIDLabel" runat="server" Text='<%# Eval("WWUEntityID") %>' />
-                                <br />
-                                StartOfEngagement:
-                            <asp:Label ID="StartOfEngagementLabel" runat="server" Text='<%# Eval("StartOfEngagement", "{0:d}") %>' />
-                                <br />
-                                EndOfEngagement:
-                            <asp:Label ID="EndOfEngagementLabel" runat="server" Text='<%# Eval("EndOfEngagement", "{0:d}") %>' />
-                                <br />
-                                SpecificProjectActivity:
-                            <asp:Label ID="SpecificProjectActivityLabel" runat="server" Text='<%# Eval("SpecificProjectActivity") %>' />
-                                <br />
-                                UniversityPartnerID:
-                            <asp:Label ID="UniversityPartnerIDLabel" runat="server" Text='<%# Eval("UniversityPartnerID") %>' />
-                                <br />
-                                NumberOfFaculty:
-                            <asp:Label ID="NumberOfFacultyLabel" runat="server" Text='<%# Eval("NumberOfFaculty") %>' />
-                                <br />
-                                NumberOfStaff:
-                            <asp:Label ID="NumberOfStaffLabel" runat="server" Text='<%# Eval("NumberOfStaff") %>' />
-                                <br />
-                                NumberOfStudents:
-                            <asp:Label ID="NumberOfStudentsLabel" runat="server" Text='<%# Eval("NumberOfStudents") %>' />
-                                <br />
-                                ActivityType:
-                            <asp:Label ID="ActivityTypeLabel" runat="server" Text='<%# Eval("ActivityType") %>' />
-                                <br />
-                                <asp:CheckBox ID="ActivityFeeCheckBox" runat="server" Checked='<%# Eval("ActivityFee") %>' Enabled="false" Text="ActivityFee" />
-                                <br />
-                                RelationshipType:
-                            <asp:Label ID="RelationshipTypeLabel" runat="server" Text='<%# Eval("RelationshipType") %>' />
-                                <br />
-                                EngagementType:
-                            <asp:Label ID="EngagementTypeLabel" runat="server" Text='<%# Eval("EngagementType") %>' />
-                                <br />
-                                <br />
-                            </span>--%>
                         </ItemTemplate>
                     </asp:ListView>
                 </div>

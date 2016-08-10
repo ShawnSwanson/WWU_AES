@@ -20,12 +20,11 @@
                 </div>
                 <div class="panel-body">
                     <asp:SqlDataSource ID="sdsList" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblWWUEntity]"></asp:SqlDataSource>
-                    <asp:SqlDataSource ID="sdsDetail" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblWWUEntity] WHERE ([WWUEntityID] = @WWUEntityID)" DeleteCommand="DELETE FROM [tblWWUEntity] WHERE [WWUEntityID] = @WWUEntityID" InsertCommand="INSERT INTO [tblWWUEntity] ([Wnumber], [EntityName], [EntityPurpose], [ContactPerson], [ActivityType], [ClientIsInternalWWU], [ClientIsForProfit], [ClientIsNonProfit], [ClientIsGovernment], [ClientIsTribal], [EngagementIsProject], [EngagementIsQuarter], [EngagementIsContract]) VALUES (@Wnumber, @EntityName, @EntityPurpose, @ContactPerson, @ActivityType, @ClientIsInternalWWU, @ClientIsForProfit, @ClientIsNonProfit, @ClientIsGovernment, @ClientIsTribal, @EngagementIsProject, @EngagementIsQuarter, @EngagementIsContract)" UpdateCommand="UPDATE [tblWWUEntity] SET [Wnumber] = @Wnumber, [EntityName] = @EntityName, [EntityPurpose] = @EntityPurpose, [ContactPerson] = @ContactPerson, [ActivityType] = @ActivityType, [ClientIsInternalWWU] = @ClientIsInternalWWU, [ClientIsForProfit] = @ClientIsForProfit, [ClientIsNonProfit] = @ClientIsNonProfit, [ClientIsGovernment] = @ClientIsGovernment, [ClientIsTribal] = @ClientIsTribal, [EngagementIsProject] = @EngagementIsProject, [EngagementIsQuarter] = @EngagementIsQuarter, [EngagementIsContract] = @EngagementIsContract WHERE [WWUEntityID] = @WWUEntityID">
+                    <asp:SqlDataSource ID="sdsDetail" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblWWUEntity] WHERE ([WWUEntityID] = @WWUEntityID)" DeleteCommand="DELETE FROM [tblWWUEntity] WHERE [WWUEntityID] = @WWUEntityID" InsertCommand="INSERT INTO [tblWWUEntity] ([EntityName], [EntityPurpose], [ContactPerson], [ActivityType], [ClientIsInternalWWU], [ClientIsForProfit], [ClientIsNonProfit], [ClientIsGovernment], [ClientIsTribal], [EngagementIsProject], [EngagementIsQuarter], [EngagementIsContract]) VALUES (@EntityName, @EntityPurpose, @ContactPerson, @ActivityType, @ClientIsInternalWWU, @ClientIsForProfit, @ClientIsNonProfit, @ClientIsGovernment, @ClientIsTribal, @EngagementIsProject, @EngagementIsQuarter, @EngagementIsContract)" UpdateCommand="UPDATE [tblWWUEntity] SET [EntityName] = @EntityName, [EntityPurpose] = @EntityPurpose, [ContactPerson] = @ContactPerson, [ActivityType] = @ActivityType, [ClientIsInternalWWU] = @ClientIsInternalWWU, [ClientIsForProfit] = @ClientIsForProfit, [ClientIsNonProfit] = @ClientIsNonProfit, [ClientIsGovernment] = @ClientIsGovernment, [ClientIsTribal] = @ClientIsTribal, [EngagementIsProject] = @EngagementIsProject, [EngagementIsQuarter] = @EngagementIsQuarter, [EngagementIsContract] = @EngagementIsContract WHERE [WWUEntityID] = @WWUEntityID">
                         <DeleteParameters>
                             <asp:Parameter Name="WWUEntityID" Type="Int32" />
                         </DeleteParameters>
                         <InsertParameters>
-                            <asp:Parameter Name="Wnumber" Type="String" />
                             <asp:Parameter Name="EntityName" Type="String" />
                             <asp:Parameter Name="EntityPurpose" Type="String" />
                             <asp:Parameter Name="ContactPerson" Type="String" />
@@ -43,7 +42,6 @@
                             <asp:ControlParameter ControlID="GridView1" Name="WWUEntityID" PropertyName="SelectedValue" Type="Int32" />
                         </SelectParameters>
                         <UpdateParameters>
-                            <asp:Parameter Name="Wnumber" Type="String" />
                             <asp:Parameter Name="EntityName" Type="String" />
                             <asp:Parameter Name="EntityPurpose" Type="String" />
                             <asp:Parameter Name="ContactPerson" Type="String" />
@@ -63,17 +61,6 @@
                         <asp:DetailsView ID="DetailsView1" runat="server" Width="80%" AutoGenerateRows="False" DataKeyNames="WWUEntityID" DataSourceID="sdsDetail" HorizontalAlign="Center" GridLines="None" CssClass="table table-striped table-hover">
                             <Fields>
                                 <asp:BoundField DataField="WWUEntityID" HeaderText="WWUEntityID" InsertVisible="False" ReadOnly="True" SortExpression="WWUEntityID" />
-                                <asp:TemplateField HeaderText="W Number" SortExpression="Wnumber">
-                                    <EditItemTemplate>
-                                        <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("Wnumber") %>' CssClass="form-control"></asp:TextBox>
-                                    </EditItemTemplate>
-                                    <InsertItemTemplate>
-                                        <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("Wnumber") %>' CssClass="form-control"></asp:TextBox>
-                                    </InsertItemTemplate>
-                                    <ItemTemplate>
-                                        <asp:Label ID="Label5" runat="server" Text='<%# Bind("Wnumber") %>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Entity Name*" SortExpression="EntityName">
                                     <EditItemTemplate>
                                         <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("EntityName") %>' CssClass="form-control"></asp:TextBox>
@@ -171,7 +158,6 @@
                         <Columns>
                             <asp:CommandField ShowSelectButton="True" ItemStyle-Width="3%"/>
                             <asp:BoundField DataField="WWUEntityID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="WWUEntityID" HeaderStyle-Width="2%" />
-                            <asp:BoundField DataField="Wnumber" HeaderText="W#" SortExpression="Wnumber" HeaderStyle-Width="5%" />
                             <asp:BoundField DataField="EntityName" HeaderText="Entity Name" SortExpression="EntityName" HeaderStyle-Width="8%" />
                             <asp:BoundField DataField="EntityPurpose" HeaderText="Entity Purpose" SortExpression="EntityPurpose" HeaderStyle-Width="15%" />
                             <asp:BoundField DataField="ContactPerson" HeaderText="Contact Person" SortExpression="ContactPerson" HeaderStyle-Width="8%" />

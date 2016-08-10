@@ -20,7 +20,7 @@
                 <h4>Enter a search term:</h4>
             </div>
             <asp:TextBox ID="tbSearch" runat="server" CssClass="form-control" Width="20%"></asp:TextBox><br />
-            <asp:SqlDataSource ID="sdsWWUEntity" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblWWUEntity] WHERE (([ActivityType] LIKE '%' + @ActivityType + '%') OR ([EntityName] LIKE '%' + @EntityName + '%') OR ([ContactPerson] LIKE '%' + @ContactPerson + '%') OR ([EntityPurpose] LIKE '%' + @EntityPurpose + '%') OR ([Wnumber] LIKE '%' + @Wnumber + '%'))">
+            <asp:SqlDataSource ID="sdsWWUEntity" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblWWUEntity] WHERE (([ActivityType] LIKE '%' + @ActivityType + '%') OR ([EntityName] LIKE '%' + @EntityName + '%') OR ([ContactPerson] LIKE '%' + @ContactPerson + '%') OR ([EntityPurpose] LIKE '%' + @EntityPurpose + '%'))">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="tbSearch" Name="ActivityType" PropertyName="Text" Type="String" />
                     <asp:ControlParameter ControlID="tbSearch" Name="EntityName" PropertyName="Text" Type="String" />
@@ -55,7 +55,7 @@
                     <asp:ControlParameter ControlID="tbSearch" Name="ZIP" PropertyName="Text" Type="String" />
                 </SelectParameters>
             </asp:SqlDataSource>
-            <asp:SqlDataSource ID="sdsProject" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT DISTINCT [ProjectID], [ProjectName], [ClientID], [WWUEntityID], [StartOfEngagement], [EndOfEngagement], [SpecificProjectActivity], [UniversityPartnerID], [NumberOfFaculty], [NumberOfStaff], [NumberOfStudents], [ActivityFee], [ActivityType], [RelationshipType], [EngagementType] FROM [tblProject] WHERE (([ActivityType] LIKE '%' + @ActivityType + '%') OR ([EngagementType] LIKE '%' + @EngagementType + '%') OR ([ProjectName] LIKE '%' + @ProjectName + '%') OR ([RelationshipType] LIKE '%' + @RelationshipType + '%') OR ([SpecificProjectActivity] LIKE '%' + @SpecificProjectActivity + '%'))">
+            <asp:SqlDataSource ID="sdsProject" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT DISTINCT [ProjectID], [ProjectName], [ClientID], [WWUEntityID], [StartOfEngagement], [EndOfEngagement], [SpecificProjectActivity], [UniversityPartnerID], [NumberOfFaculty],[FacultyHours], [NumberOfStaff],[StaffHours], [NumberOfStudents],[StudentHours], [ActivityFee], [ActivityType], [RelationshipType], [EngagementType] FROM [tblProject] WHERE (([ActivityType] LIKE '%' + @ActivityType + '%') OR ([EngagementType] LIKE '%' + @EngagementType + '%') OR ([ProjectName] LIKE '%' + @ProjectName + '%') OR ([RelationshipType] LIKE '%' + @RelationshipType + '%') OR ([SpecificProjectActivity] LIKE '%' + @SpecificProjectActivity + '%'))">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="tbSearch" Name="ActivityType" PropertyName="Text" Type="String" />
                     <asp:ControlParameter ControlID="tbSearch" Name="EngagementType" PropertyName="Text" Type="String" />
@@ -74,19 +74,18 @@
                     <div class="row noBreak">
                         <div class="col-sm-1"></div>
                         <div class="col-sm-11">
-                            <table>
+                            <table >
                                 <tr>
-                                    <td>
+                                    <td style="padding:5px;">
                                         <h3><%# Eval("EntityName") %></h3>
                                         WWU Entity ID: <%# Eval("WWUEntityID") %><br />
-                                        W#: <%# Eval("Wnumber") %>
                                         <br />
                                         Contact: <%# Eval("ContactPerson") %>
                                         <br />
                                         <%# Eval("ActivityType") %>
                                                 
                                     </td>
-                                    <td>
+                                    <td style="padding:5px;">
                                         <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Eval("ClientIsInternalWWU") %>' Enabled="false" Text="Internal Clients" />
                                         <br />
                                         <asp:CheckBox ID="CheckBox2" runat="server" Checked='<%# Eval("ClientIsForProfit") %>' Enabled="false" Text="For Profit Clients" />
@@ -97,7 +96,7 @@
                                         <br />
                                         <asp:CheckBox ID="CheckBox5" runat="server" Checked='<%# Eval("ClientIsTribal") %>' Enabled="false" Text="Tribal Clients" />
                                     </td>
-                                    <td>
+                                    <td style="padding:5px;">
                                         <asp:CheckBox ID="CheckBox6" runat="server" Checked='<%# Eval("EngagementIsProject") %>' Enabled="false" Text="Project Engagements" />
                                         <br />
                                         <asp:CheckBox ID="CheckBox7" runat="server" Checked='<%# Eval("EngagementIsQuarter") %>' Enabled="false" Text="Quarterly Engagements" />
@@ -176,7 +175,7 @@
                         <div class="col-sm-11">
                             <table>
                                 <tr>
-                                    <td>
+                                    <td style="padding:5px;">
                                         <h3><%# Eval("ProjectName") %></h3>
                                         Project ID: <%# Eval("ProjectID") %><br />
                                         Client ID: <%# Eval("ClientID") %>
@@ -191,14 +190,14 @@
                                         <br />
                                         <asp:CheckBox ID="CheckBox9" runat="server" Checked='<%# Eval("ActivityFee") %>' Enabled="false" Text="Activity Has Fee" />
                                     </td>
-                                    <td>
+                                    <td style="padding:5px;">
                                         <br />
                                         <br />
                                         Project Start: <%# Eval("StartOfEngagement", "{0:d}") %><br />
                                         Project End: <%# Eval("EndOfEngagement", "{0:d}") %><br />
-                                        Faculty: <%# Eval("NumberOfFaculty") %><br />
-                                        Staff: <%# Eval("NumberOfStaff") %><br />
-                                        Students: <%# Eval("NumberOfStudents") %><br />
+                                        Faculty: <%# Eval("NumberOfFaculty") %> | Hours: <%# Eval("FacultyHours") %><br />
+                                        Staff: <%# Eval("NumberOfStaff") %> | Hours: <%# Eval("StaffHours") %><br />
+                                        Students: <%# Eval("NumberOfStudents") %> | Hours: <%# Eval("StudentHours") %><br />
                                         Relationship Type: <%# Eval("RelationshipType") %>
                                     </td>
                                 </tr>

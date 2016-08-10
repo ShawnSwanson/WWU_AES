@@ -70,7 +70,7 @@
                         <div class="col-sm-11">
                             <table>
                                 <tr>
-                                    <td>
+                                    <td style="padding:5px;">
                                         <h3><%# Eval("ProjectName") %></h3>
                                         Project ID: <%# Eval("ProjectID") %><br />
                                         Client ID: <%# Eval("ClientID") %>
@@ -85,14 +85,14 @@
                                         <br />
                                         <asp:CheckBox ID="CheckBox9" runat="server" Checked='<%# Eval("ActivityFee") %>' Enabled="false" Text="Activity Has Fee" />
                                     </td>
-                                    <td>
+                                    <td style="padding:5px;">
                                         <br />
                                         <br />
                                         Project Start: <%# Eval("StartOfEngagement", "{0:d}") %><br />
                                         Project End: <%# Eval("EndOfEngagement", "{0:d}") %><br />
-                                        Faculty: <%# Eval("NumberOfFaculty") %><br />
-                                        Staff: <%# Eval("NumberOfStaff") %><br />
-                                        Students: <%# Eval("NumberOfStudents") %><br />
+                                        Faculty: <%# Eval("NumberOfFaculty") %> | Hours: <%# Eval("FacultyHours") %><br />
+                                        Staff: <%# Eval("NumberOfStaff") %> | Hours: <%# Eval("StaffHours") %><br />
+                                        Students: <%# Eval("NumberOfStudents") %> | Hours: <%# Eval("StudentHours") %><br />
                                         Relationship Type: <%# Eval("RelationshipType") %>
                                     </td>
                                 </tr>
@@ -117,17 +117,16 @@
                         <div class="col-sm-11">
                             <table>
                                 <tr>
-                                    <td>
+                                    <td style="padding:5px;">
                                         <h3><%# Eval("EntityName") %></h3>
                                         WWU Entity ID: <%# Eval("WWUEntityID") %><br />
-                                        W#: <%# Eval("Wnumber") %>
                                         <br />
                                         Contact: <%# Eval("ContactPerson") %>
                                         <br />
                                         <%# Eval("ActivityType") %>
                                                 
                                     </td>
-                                    <td>
+                                    <td style="padding:5px;">
                                         <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Eval("ClientIsInternalWWU") %>' Enabled="false" Text="Internal Clients" />
                                         <br />
                                         <asp:CheckBox ID="CheckBox2" runat="server" Checked='<%# Eval("ClientIsForProfit") %>' Enabled="false" Text="For Profit Clients" />
@@ -138,7 +137,7 @@
                                         <br />
                                         <asp:CheckBox ID="CheckBox5" runat="server" Checked='<%# Eval("ClientIsTribal") %>' Enabled="false" Text="Tribal Clients" />
                                     </td>
-                                    <td>
+                                    <td style="padding:5px;">
                                         <asp:CheckBox ID="CheckBox6" runat="server" Checked='<%# Eval("EngagementIsProject") %>' Enabled="false" Text="Project Engagements" />
                                         <br />
                                         <asp:CheckBox ID="CheckBox7" runat="server" Checked='<%# Eval("EngagementIsQuarter") %>' Enabled="false" Text="Quarterly Engagements" />

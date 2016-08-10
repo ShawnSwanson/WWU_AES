@@ -84,9 +84,9 @@
                                             <div class="col-sm-6">
                                                 <h3>Project Start: <%# Eval("StartOfEngagement", "{0:d}") %><br />
                                                     Project End: <%# Eval("EndOfEngagement", "{0:d}") %><br />
-                                                    Faculty: <%# Eval("NumberOfFaculty") %><br />
-                                                    Staff: <%# Eval("NumberOfStaff") %><br />
-                                                    Students: <%# Eval("NumberOfStudents") %><br />
+                                                    Faculty: <%# Eval("NumberOfFaculty") %> | Hours: <%# Eval("FacultyHours") %><br />
+                                                    Staff: <%# Eval("NumberOfStaff") %> | Hours: <%# Eval("StaffHours") %><br />
+                                                    Students: <%# Eval("NumberOfStudents") %> | Hours: <%# Eval("StudentHours") %><br />
                                                     Relationship Type: <%# Eval("RelationshipType") %>
                                                 </h3>
                                             </div>
@@ -187,7 +187,6 @@
                                                     <h2><%# Eval("EntityName") %></h2>
                                                 </div>
                                                 <div class="col-sm-4 text-right">
-                                                    <h4><%# Eval("Wnumber") %></h4>
                                                     <h4>WWU Entity ID: <%# Eval("WWUEntityID") %></h4>
                                                 </div>
                                             </div>

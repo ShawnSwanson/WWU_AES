@@ -12,15 +12,19 @@
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+
     <style>
         @media print {
             .PrintNone {
-                position: absolute; left: -999em;
+                position: absolute;
+                left: -999em;
             }
-            .noBreak{
-                page-break-inside:avoid;
+
+            .noBreak {
+                page-break-inside: avoid;
             }
         }
+
     </style>
 
     <title>WWU Applied Engagement System</title>
