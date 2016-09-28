@@ -15,27 +15,27 @@
     <div class="row">
         <h3>WWU Entity Detail Report</h3>
         <div>
-            <asp:SqlDataSource ID="sdsEntityDropDown" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT [WWUEntityID], [EntityName] FROM [tblWWUEntity]"></asp:SqlDataSource>
-            <asp:SqlDataSource ID="sdsReportClients" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblClient] WHERE ([WWUEntityID] = @WWUEntityID)">
-                <SelectParameters>
-                    <asp:ControlParameter ControlID="DropDownList1" Name="WWUEntityID" PropertyName="SelectedValue" Type="Int32" />
-                </SelectParameters>
-            </asp:SqlDataSource>
-            <asp:SqlDataSource ID="sdsReportProjects" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblProject] WHERE ([WWUEntityID] = @WWUEntityID)">
-                <SelectParameters>
-                    <asp:ControlParameter ControlID="DropDownList1" Name="WWUEntityID" PropertyName="SelectedValue" Type="Int32" />
-                </SelectParameters>
-            </asp:SqlDataSource>
-            <asp:SqlDataSource ID="sdsUPartners" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblUniversityPartner] WHERE ([WWUEntityID] = @WWUEntityID)">
-                <SelectParameters>
-                    <asp:ControlParameter ControlID="DropDownList1" Name="WWUEntityID" PropertyName="SelectedValue" Type="Int32" />
-                </SelectParameters>
-            </asp:SqlDataSource>
-            <asp:SqlDataSource ID="sdsWWUEntityDetail" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblWWUEntity] WHERE ([WWUEntityID] = @WWUEntityID)">
-                <SelectParameters>
-                    <asp:ControlParameter ControlID="DropDownList1" Name="WWUEntityID" PropertyName="SelectedValue" Type="Int32" />
-                </SelectParameters>
-            </asp:SqlDataSource>
+                    <asp:SqlDataSource ID="sdsEntityDropDown" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT [WWUEntityID], [EntityName] FROM [URCD_UniversityProjects].[WWU\swanso31].[tblWWUEntity]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="sdsReportClients" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [URCD_UniversityProjects].[WWU\swanso31].[tblClient] WHERE ([WWUEntityID] = @WWUEntityID)">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="DropDownList1" Name="WWUEntityID" PropertyName="SelectedValue" Type="Int32" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                    <asp:SqlDataSource ID="sdsReportProjects" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [URCD_UniversityProjects].[WWU\swanso31].[tblProject] WHERE ([WWUEntityID] = @WWUEntityID)">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="DropDownList1" Name="WWUEntityID" PropertyName="SelectedValue" Type="Int32" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                    <asp:SqlDataSource ID="sdsUPartners" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [URCD_UniversityProjects].[WWU\swanso31].[tblUniversityPartner] WHERE ([WWUEntityID] = @WWUEntityID)">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="DropDownList1" Name="WWUEntityID" PropertyName="SelectedValue" Type="Int32" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                    <asp:SqlDataSource ID="sdsWWUEntityDetail" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [URCD_UniversityProjects].[WWU\swanso31].[tblWWUEntity] WHERE ([WWUEntityID] = @WWUEntityID)">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="DropDownList1" Name="WWUEntityID" PropertyName="SelectedValue" Type="Int32" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
 
             <div class="hidden-print">
                 Select a WWU Entity to develop a report:

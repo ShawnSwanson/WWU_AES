@@ -15,22 +15,22 @@
     <div class="row">
         <h2>Client Detail Report</h2>
         <div>
-            <asp:SqlDataSource ID="sdsClientDDL" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT [ClientID], [OrganizationName] FROM [tblClient]"></asp:SqlDataSource>
-            <asp:SqlDataSource ID="sdsClientDetail" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblClient] WHERE ([ClientID] = @ClientID)">
-                <SelectParameters>
-                    <asp:ControlParameter ControlID="ddlClients" Name="ClientID" PropertyName="SelectedValue" Type="Int32" />
-                </SelectParameters>
-            </asp:SqlDataSource>
-            <asp:SqlDataSource ID="sdsProjects" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblProject] WHERE ([ClientID] = @ClientID)">
-                <SelectParameters>
-                    <asp:ControlParameter ControlID="ddlClients" Name="ClientID" PropertyName="SelectedValue" Type="Int32" />
-                </SelectParameters>
-            </asp:SqlDataSource>
-            <asp:SqlDataSource ID="sdsWWUEntities" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblWWUEntity] WHERE ([WWUEntityID] IN (SELECT WWUEntityID FROM [tblProject] WHERE ClientID = @ClientID))">
-                <SelectParameters>
-                    <asp:ControlParameter ControlID="ddlClients" Name="ClientID" PropertyName="SelectedValue" />
-                </SelectParameters>
-            </asp:SqlDataSource>
+            <asp:SqlDataSource ID="sdsClientDDL" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT [ClientID], [OrganizationName] FROM [URCD_UniversityProjects].[WWU\swanso31].[tblClient]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="sdsClientDetail" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [URCD_UniversityProjects].[WWU\swanso31].[tblClient] WHERE ([ClientID] = @ClientID)">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="ddlClients" Name="ClientID" PropertyName="SelectedValue" Type="Int32" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                    <asp:SqlDataSource ID="sdsProjects" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [URCD_UniversityProjects].[WWU\swanso31].[tblProject] WHERE ([ClientID] = @ClientID)">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="ddlClients" Name="ClientID" PropertyName="SelectedValue" Type="Int32" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                    <asp:SqlDataSource ID="sdsWWUEntities" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [URCD_UniversityProjects].[WWU\swanso31].[tblWWUEntity] WHERE ([WWUEntityID] IN (SELECT WWUEntityID FROM [URCD_UniversityProjects].[WWU\swanso31].[tblProject] WHERE ClientID = @ClientID))">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="ddlClients" Name="ClientID" PropertyName="SelectedValue" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
 
             <div class="hidden-print">
                 Select a Client to generate a report:

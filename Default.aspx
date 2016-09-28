@@ -51,11 +51,11 @@
         <div class="col-sm-8">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3>Dashboard Stats</h3>
+                    <h3>AES Overview</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <asp:SqlDataSource ID="sdsDashboard" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM dbStatsReport"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="sdsDashboard" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT dbStatsReport.* FROM [URCD_UniversityProjects].[WWU\swanso31].[dbStatsReport]"></asp:SqlDataSource>
                         <asp:ListView ID="lvDashboard" runat="server" DataSourceID="sdsDashboard">
                             <EmptyDataTemplate>
                                 <span>No data was returned.</span>
@@ -64,43 +64,49 @@
                                 <span style="">
                                     <div class="row">
                                         <div class="col-sm-1"></div>
-                                        <div class="col-sm-4">
-                                            <h3>Number of Clients:<br />
-                                            <small><asp:Label ID="ClientCountLabel" runat="server" Text='<%# Eval("ClientCount") %>' /></small></h3>
+                                        <div class="col-sm-3 text-center panel panel-primary panel-body">
+                                            <h1><small>Number of Clients:</small><br />
+                                            <asp:Label ID="ClientCountLabel" runat="server" Text='<%# Eval("ClientCount") %>' /></h1>
                                         </div>
-                                        <div class="col-sm-4">
-                                            <h3>Total Projects Undertaken:<br />
-                                            <small><asp:Label ID="ProjectCountLabel" runat="server" Text='<%# Eval("ProjectCount") %>' /></small></h3>
-                                        </div>
-                                        <div class="col-sm-3"></div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-sm-1"></div>
-                                        <div class="col-sm-4">
-                                            <h3>University Project Partners:<br />
-                                            <small><asp:Label ID="PartnerCountLabel" runat="server" Text='<%# Eval("PartnerCount") %>' /></small></h3>
+                                        <div class="col-sm-2 text-center panel panel-primary panel-body">
+                                            <h1><small>Project Partners:</small><br />
+                                            <asp:Label ID="PartnerCountLabel" runat="server" Text='<%# Eval("PartnerCount") %>' /></h1>
                                         </div>
-                                        <div class="col-sm-4">
-                                            <h3>Unique Western Entities:<br />
-                                            <small><asp:Label ID="WWUCountLabel" runat="server" Text='<%# Eval("WWUCount") %>' /></small></h3>
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-3 text-center panel panel-primary panel-body">
+                                            <h1><small>Western Entities:</small><br />
+                                            <asp:Label ID="WWUCountLabel" runat="server" Text='<%# Eval("WWUCount") %>' /></h1>
                                         </div>
                                         <div class="col-sm-1"></div>
                                     </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-4"></div>
+                                        <div class="col-sm-4 text-center panel panel-primary panel-body">
+                                            <h1><small>Total Projects Recorded:</small><br />
+                                            <asp:Label ID="ProjectCountLabel" runat="server" Text='<%# Eval("ProjectCount") %>' /></h1>
+                                        </div>
+                                        <div class="col-sm-4"></div>
+                                    </div>
+
                                     <div class="row">
                                         <div class="col-sm-1"></div>
-                                        <div class="col-sm-3">
-                                            <h3>Total Logged Faculty Hours:<br />
-                                            <small><asp:Label ID="TotalFacultyHoursLabel" runat="server" Text='<%# Eval("TotalFacultyHours") %>' /></small></h3>
+                                        <div class="col-sm-3 text-center panel panel-primary panel-body">
+                                            <h1><small>Logged Faculty Hours:</small><br />
+                                            <asp:Label ID="TotalFacultyHoursLabel" runat="server" Text='<%# Eval("TotalFacultyHours") %>' /></h1>
                                         </div>
-                                        <div class="col-sm-3">
-                                            <h3>Total Logged Staff Hours:<br />
-                                            <small><asp:Label ID="TotalStaffHoursLabel" runat="server" Text='<%# Eval("TotalStaffHours") %>' /></small></h3>
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-2 text-center panel panel-primary panel-body">
+                                            <h1><small>Logged Student Hours:</small><br />
+                                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("TotalStudentHours") %>' /></h1>
                                         </div>
-                                        <div class="col-sm-3">
-                                            <h3>Total Logged Student Hours:<br />
-                                            <small><asp:Label ID="TotalStudentHoursLabel" runat="server" Text='<%# Eval("TotalStudentHours") %>' /></small></h3>
+                                        <div class="col-sm-1"></div>
+                                        <div class="col-sm-3 text-center panel panel-primary panel-body">
+                                            <h1><small>Logged Staff Hours:</small><br />
+                                            <asp:Label ID="TotalStaffHoursLabel" runat="server" Text='<%# Eval("TotalStaffHours") %>' /></h1>
                                         </div>
-                                        <div class="col-sm-2"></div>
+                                        <div class="col-sm-1"></div>
                                     </div>
                                     <br />
                                 </span>

@@ -10,9 +10,7 @@
     <link href="chosen/prism.css" rel="stylesheet" />
     <link href="chosen/chosen.css" rel="stylesheet" />
 
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
-
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
     <style>
         @media print {
             .PrintNone {
@@ -23,6 +21,37 @@
             .noBreak {
                 page-break-inside: avoid;
             }
+        }
+
+        input[type="checkbox"] {
+            cursor: pointer;
+            -webkit-appearance: none;
+            appearance: none;
+            background: Url("/img/unchecked.PNG");
+            display:inline-block;
+            border-radius: 1px;
+            box-sizing: border-box;
+            position: relative;
+            box-sizing: content-box;
+            width: 20px;
+            height: 20px;
+            border-width: 1px;
+            transition: all .3s linear;
+        }
+        input[type="checkbox"]:checked {
+            cursor: pointer;
+            -webkit-appearance: none;
+            appearance: none;
+            background:url("/img/checked.PNG");
+            display:inline-block;
+            border-radius: 1px;
+            box-sizing: border-box;
+            position: relative;
+            box-sizing: content-box;
+            width: 20px;
+            height: 20px;
+            border-width: 1px;
+            transition: all .3s linear;
         }
 
     </style>
@@ -73,6 +102,7 @@
     <script src="../chosen/chosen.jquery.js"></script>
     <script src="../chosen/chosen.jquery.js"></script>
     <script src="../chosen/prism.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript">
         var config = {
             '.chosen-select': {},

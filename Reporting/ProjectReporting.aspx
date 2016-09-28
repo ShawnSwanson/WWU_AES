@@ -20,24 +20,24 @@
                     <h3>Project Detail Report</h3>
                 </div>
                 <div class="panel-body">
-                    <asp:SqlDataSource ID="sdsProjects" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblProject]"></asp:SqlDataSource>
-                    <asp:SqlDataSource ID="sdsProjectDetail" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblProject] WHERE ([ProjectID] = @ProjectID)">
+                    <asp:SqlDataSource ID="sdsProjects" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [URCD_UniversityProjects].[WWU\swanso31].[tblProject]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="sdsProjectDetail" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [URCD_UniversityProjects].[WWU\swanso31].[tblProject] WHERE ([ProjectID] = @ProjectID)">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="ddlProjects" Name="ProjectID" PropertyName="SelectedValue" Type="Int32" />
                         </SelectParameters>
                     </asp:SqlDataSource>
 
-                    <asp:SqlDataSource ID="sdsClient" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblClient] WHERE ([ClientID] = @ClientID)">
-                        <SelectParameters>
-                            <asp:ControlParameter ControlID="ddlProjects" Name="ClientID" PropertyName="SelectedValue" Type="Int32" />
-                        </SelectParameters>
-                    </asp:SqlDataSource>
-                    <asp:SqlDataSource ID="sdsUniversityPartner" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblUniversityPartner] WHERE ([UniversityPartnerID] = (SELECT UniversityPartnerID FROM [tblProject] WHERE ([ProjectID] = @ProjectID)))">
+                    <asp:SqlDataSource ID="sdsClient" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [URCD_UniversityProjects].[WWU\swanso31].[tblClient] WHERE (ClientID = (SELECT ClientID FROM [URCD_UniversityProjects].[WWU\swanso31].[tblProject] WHERE (ProjectID = @ProjectID)))">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="ddlProjects" Name="ProjectID" PropertyName="SelectedValue" />
                         </SelectParameters>
                     </asp:SqlDataSource>
-                    <asp:SqlDataSource ID="sdsWWUEntity" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblWWUEntity] WHERE ([WWUEntityID] = (SELECT WWUEntityID FROM [tblProject] WHERE ([ProjectID] = @ProjectID)))">
+                    <asp:SqlDataSource ID="sdsUniversityPartner" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [URCD_UniversityProjects].[WWU\swanso31].[tblUniversityPartner] WHERE ([UniversityPartnerID] = (SELECT UniversityPartnerID FROM [URCD_UniversityProjects].[WWU\swanso31].[tblProject] WHERE ([ProjectID] = @ProjectID)))">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="ddlProjects" Name="ProjectID" PropertyName="SelectedValue" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                    <asp:SqlDataSource ID="sdsWWUEntity" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [URCD_UniversityProjects].[WWU\swanso31].[tblWWUEntity] WHERE ([WWUEntityID] = (SELECT WWUEntityID FROM [URCD_UniversityProjects].[WWU\swanso31].[tblProject] WHERE ([ProjectID] = @ProjectID)))">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="ddlProjects" Name="ProjectID" PropertyName="SelectedValue" />
                         </SelectParameters>
@@ -223,46 +223,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <%--                            <span style="">WWUEntityID:
-                            <asp:Label ID="WWUEntityIDLabel" runat="server" Text='<%# Eval("WWUEntityID") %>' />
-                                <br />
-                                Wnumber:
-                            <asp:Label ID="WnumberLabel" runat="server" Text='<%# Eval("Wnumber") %>' />
-                                <br />
-                                EntityName:
-                            <asp:Label ID="EntityNameLabel" runat="server" Text='<%# Eval("EntityName") %>' />
-                                <br />
-                                EntityPurpose:
-                            <asp:Label ID="EntityPurposeLabel" runat="server" Text='<%# Eval("EntityPurpose") %>' />
-                                <br />
-                                ContactPerson:
-                            <asp:Label ID="ContactPersonLabel" runat="server" Text='<%# Eval("ContactPerson") %>' />
-                                <br />
-                                RelationshipType:
-                            <asp:Label ID="RelationshipTypeLabel" runat="server" Text='<%# Eval("RelationshipType") %>' />
-                                <br />
-                                ActivityType:
-                            <asp:Label ID="ActivityTypeLabel" runat="server" Text='<%# Eval("ActivityType") %>' />
-                                <br />
-                                <asp:CheckBox ID="ClientIsInternalWWUCheckBox" runat="server" Checked='<%# Eval("ClientIsInternalWWU") %>' Enabled="false" Text="ClientIsInternalWWU" />
-                                <br />
-                                <asp:CheckBox ID="ClientIsForProfitCheckBox" runat="server" Checked='<%# Eval("ClientIsForProfit") %>' Enabled="false" Text="ClientIsForProfit" />
-                                <br />
-                                <asp:CheckBox ID="ClientIsNonProfitCheckBox" runat="server" Checked='<%# Eval("ClientIsNonProfit") %>' Enabled="false" Text="ClientIsNonProfit" />
-                                <br />
-                                <asp:CheckBox ID="ClientIsGovernmentCheckBox" runat="server" Checked='<%# Eval("ClientIsGovernment") %>' Enabled="false" Text="ClientIsGovernment" />
-                                <br />
-                                <asp:CheckBox ID="ClientIsTribalCheckBox" runat="server" Checked='<%# Eval("ClientIsTribal") %>' Enabled="false" Text="ClientIsTribal" />
-                                <br />
-                                <asp:CheckBox ID="EngagementIsProjectCheckBox" runat="server" Checked='<%# Eval("EngagementIsProject") %>' Enabled="false" Text="EngagementIsProject" />
-                                <br />
-                                <asp:CheckBox ID="EngagementIsQuarterCheckBox" runat="server" Checked='<%# Eval("EngagementIsQuarter") %>' Enabled="false" Text="EngagementIsQuarter" />
-                                <br />
-                                <asp:CheckBox ID="EngagementIsContractCheckBox" runat="server" Checked='<%# Eval("EngagementIsContract") %>' Enabled="false" Text="EngagementIsContract" />
-                                <br />
-                                <br />
-                            </span>--%>
                         </ItemTemplate>
                     </asp:ListView>
                 </div>

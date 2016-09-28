@@ -20,18 +20,18 @@
                     <h3>Project Partner Detail Report</h3>
                 </div>
                 <div class="panel-body">
-                    <asp:SqlDataSource ID="sdsUP" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT [UniversityPartnerID], [OrganizationName] FROM [tblUniversityPartner]"></asp:SqlDataSource>
-                    <asp:SqlDataSource ID="sdsUPDetail" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblUniversityPartner] WHERE ([UniversityPartnerID] = @UniversityPartnerID)">
+                    <asp:SqlDataSource ID="sdsUP" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT [UniversityPartnerID], [OrganizationName] FROM [URCD_UniversityProjects].[WWU\swanso31].[tblUniversityPartner]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="sdsUPDetail" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [URCD_UniversityProjects].[WWU\swanso31].[tblUniversityPartner] WHERE ([UniversityPartnerID] = @UniversityPartnerID)">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="ddlUP" Name="UniversityPartnerID" PropertyName="SelectedValue" Type="Int32" />
                         </SelectParameters>
                     </asp:SqlDataSource>
-                    <asp:SqlDataSource ID="sdsWWUEntity" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblWWUEntity] WHERE ([WWUEntityID] IN (SELECT DISTINCT WWUEntityID FROM [tblProject] WHERE ([UniversityPartnerID] = @UniversityPartnerID)))">
+                    <asp:SqlDataSource ID="sdsWWUEntity" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [URCD_UniversityProjects].[WWU\swanso31].[tblWWUEntity] WHERE ([WWUEntityID] IN (SELECT DISTINCT WWUEntityID FROM [URCD_UniversityProjects].[WWU\swanso31].[tblProject] WHERE ([UniversityPartnerID] = @UniversityPartnerID)))">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="ddlUP" Name="UniversityPartnerID" PropertyName="SelectedValue" />
                         </SelectParameters>
                     </asp:SqlDataSource>
-                    <asp:SqlDataSource ID="sdsProjects" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblProject] WHERE ([UniversityPartnerID] = @UniversityPartnerID)">
+                    <asp:SqlDataSource ID="sdsProjects" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [URCD_UniversityProjects].[WWU\swanso31].[tblProject] WHERE ([UniversityPartnerID] = @UniversityPartnerID)">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="ddlUP" Name="UniversityPartnerID" PropertyName="SelectedValue" Type="Int32" />
                         </SelectParameters>

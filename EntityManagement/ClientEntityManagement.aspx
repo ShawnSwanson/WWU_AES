@@ -20,8 +20,8 @@
                     <h3>Client Entity Management</h3>
                 </div>
                 <div class="panel-body">
-                    <asp:SqlDataSource ID="sdsGrid" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblClient]"></asp:SqlDataSource>
-                    <asp:SqlDataSource ID="sdsDetail" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" DeleteCommand="DELETE FROM [tblClient] WHERE [ClientID] = @ClientID" InsertCommand="INSERT INTO [tblClient] ([OrganizationName], [ContactName], [Address], [City], [State], [Zip], [Email], [Phone], [WWUEntityID], [ClientType]) VALUES (@OrganizationName, @ContactName, @Address, @City, @State, @Zip, @Email, @Phone, @WWUEntityID, @ClientType)" SelectCommand="SELECT * FROM [tblClient] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [tblClient] SET [OrganizationName] = @OrganizationName, [ContactName] = @ContactName, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip, [Email] = @Email, [Phone] = @Phone, [WWUEntityID] = @WWUEntityID, [ClientType] = @ClientType WHERE [ClientID] = @ClientID">
+                    <asp:SqlDataSource ID="sdsGrid" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [URCD_UniversityProjects].[WWU\swanso31].[tblClient]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="sdsDetail" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" DeleteCommand="DELETE FROM [URCD_UniversityProjects].[WWU\swanso31].[tblClient] WHERE [ClientID] = @ClientID" InsertCommand="INSERT INTO [URCD_UniversityProjects].[WWU\swanso31].[tblClient] ([OrganizationName], [ContactName], [Address], [City], [State], [Zip], [Email], [Phone], [WWUEntityID], [ClientType]) VALUES (@OrganizationName, @ContactName, @Address, @City, @State, @Zip, @Email, @Phone, @WWUEntityID, @ClientType)" SelectCommand="SELECT * FROM [URCD_UniversityProjects].[WWU\swanso31].[tblClient] WHERE ([ClientID] = @ClientID)" UpdateCommand="UPDATE [URCD_UniversityProjects].[WWU\swanso31].[tblClient] SET [OrganizationName] = @OrganizationName, [ContactName] = @ContactName, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip, [Email] = @Email, [Phone] = @Phone, [WWUEntityID] = @WWUEntityID, [ClientType] = @ClientType WHERE [ClientID] = @ClientID">
                         <DeleteParameters>
                             <asp:Parameter Name="ClientID" Type="Int32" />
                         </DeleteParameters>
@@ -54,7 +54,7 @@
                             <asp:Parameter Name="ClientID" Type="Int32" />
                         </UpdateParameters>
                     </asp:SqlDataSource>
-                    <asp:SqlDataSource ID="sdsDropDownWWU" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT [WWUEntityID], [EntityName] FROM [tblWWUEntity]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="sdsDropDownWWU" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT [WWUEntityID], [EntityName] FROM [URCD_UniversityProjects].[WWU\swanso31].[tblWWUEntity]"></asp:SqlDataSource>
                     <asp:DetailsView ID="DetailsView1" runat="server" Width="80%" AutoGenerateRows="False" DataKeyNames="ClientID" DataSourceID="sdsDetail" HorizontalAlign="Center" GridLines="None" CssClass="table table-striped table-hover">
                         <Fields>
                             <asp:BoundField DataField="ClientID" HeaderText="ClientID" InsertVisible="False" ReadOnly="True" SortExpression="ClientID" />

@@ -19,8 +19,8 @@
                     <h3>Project</h3>
                 </div>
                 <div class="panel-body">
-                    <asp:SqlDataSource ID="sdsGrid" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [tblProject]"></asp:SqlDataSource>
-                    <asp:SqlDataSource ID="dsdDetail" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" DeleteCommand="DELETE FROM [tblProject] WHERE [ProjectID] = @ProjectID" InsertCommand="INSERT INTO [tblProject] ([ProjectName], [ClientID], [WWUEntityID], [StartOfEngagement], [EndOfEngagement], [SpecificProjectActivity], [UniversityPartnerID], [NumberOfFaculty],[FacultyHours], [NumberOfStaff],[StaffHours], [NumberOfStudents],[StudentHours], [ActivityType], [ActivityFee], [RelationshipType], [EngagementType]) VALUES (@ProjectName, @ClientID, @WWUEntityID, @StartOfEngagement, @EndOfEngagement, @SpecificProjectActivity, @UniversityPartnerID, @NumberOfFaculty,@FacultyHours, @NumberOfStaff,@StaffHours, @NumberOfStudents, @StudentHours, @ActivityType, @ActivityFee, @RelationshipType, @EngagementType)" SelectCommand="SELECT * FROM [tblProject] WHERE ([ProjectID] = @ProjectID)" UpdateCommand="UPDATE [tblProject] SET [ProjectName] = @ProjectName, [ClientID] = @ClientID, [WWUEntityID] = @WWUEntityID, [StartOfEngagement] = @StartOfEngagement, [EndOfEngagement] = @EndOfEngagement, [SpecificProjectActivity] = @SpecificProjectActivity, [UniversityPartnerID] = @UniversityPartnerID, [NumberOfFaculty] = @NumberOfFaculty, [FacultyHours]=@FacultyHours, [NumberOfStaff] = @NumberOfStaff, [StaffHours]=@StaffHours, [NumberOfStudents] = @NumberOfStudents, [StudentHours]=@StudentHours, [ActivityType] = @ActivityType, [ActivityFee] = @ActivityFee, [RelationshipType] = @RelationshipType, [EngagementType] = @EngagementType WHERE [ProjectID] = @ProjectID">
+                    <asp:SqlDataSource ID="sdsGrid" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT * FROM [URCD_UniversityProjects].[WWU\swanso31].[tblProject]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="dsdDetail" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" DeleteCommand="DELETE FROM [URCD_UniversityProjects].[WWU\swanso31].[tblProject] WHERE [ProjectID] = @ProjectID" InsertCommand="INSERT INTO [URCD_UniversityProjects].[WWU\swanso31].[tblProject] ([ProjectName], [ClientID], [WWUEntityID], [StartOfEngagement], [EndOfEngagement], [SpecificProjectActivity], [UniversityPartnerID], [NumberOfFaculty], [FacultyHours], [NumberOfStaff], [StaffHours], [NumberOfStudents], [StudentHours], [ActivityType], [ActivityFee], [RelationshipType], [EngagementType]) VALUES (@ProjectName, @ClientID, @WWUEntityID, @StartOfEngagement, @EndOfEngagement, @SpecificProjectActivity, @UniversityPartnerID, @NumberOfFaculty, @FacultyHours, @NumberOfStaff, @StaffHours, @NumberOfStudents, @StudentHours, @ActivityType, @ActivityFee, @RelationshipType, @EngagementType)" SelectCommand="SELECT * FROM [URCD_UniversityProjects].[WWU\swanso31].[tblProject] WHERE ([ProjectID] = @ProjectID)" UpdateCommand="UPDATE [URCD_UniversityProjects].[WWU\swanso31].[tblProject] SET [ProjectName] = @ProjectName, [ClientID] = @ClientID, [WWUEntityID] = @WWUEntityID, [StartOfEngagement] = @StartOfEngagement, [EndOfEngagement] = @EndOfEngagement, [SpecificProjectActivity] = @SpecificProjectActivity, [UniversityPartnerID] = @UniversityPartnerID, [NumberOfFaculty] = @NumberOfFaculty, [FacultyHours] = @FacultyHours, [NumberOfStaff] = @NumberOfStaff, [StaffHours] = @StaffHours, [NumberOfStudents] = @NumberOfStudents, [StudentHours] = @StudentHours, [ActivityType] = @ActivityType, [ActivityFee] = @ActivityFee, [RelationshipType] = @RelationshipType, [EngagementType] = @EngagementType WHERE [ProjectID] = @ProjectID">
                         <DeleteParameters>
                             <asp:Parameter Name="ProjectID" Type="Int32" />
                         </DeleteParameters>
@@ -67,9 +67,9 @@
                             <asp:Parameter Name="ProjectID" Type="Int32" />
                         </UpdateParameters>
                     </asp:SqlDataSource>
-                    <asp:SqlDataSource ID="sdsWWUID" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT [WWUEntityID], [EntityName] FROM [tblWWUEntity]"></asp:SqlDataSource>
-                    <asp:SqlDataSource ID="sdsClientID" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT [ClientID], [OrganizationName] FROM [tblClient]"></asp:SqlDataSource>
-                    <asp:SqlDataSource ID="sdsUniversityPartnerID" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT [UniversityPartnerID], [OrganizationName] FROM [tblUniversityPartner]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="sdsWWUID" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT [WWUEntityID], [EntityName] FROM [URCD_UniversityProjects].[WWU\swanso31].[tblWWUEntity]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="sdsClientID" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT [ClientID], [OrganizationName] FROM [URCD_UniversityProjects].[WWU\swanso31].[tblClient]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="sdsUniversityPartnerID" runat="server" ConnectionString="<%$ ConnectionStrings:CEBR_projectsDatabaseConnectionString %>" SelectCommand="SELECT [UniversityPartnerID], [OrganizationName] FROM [URCD_UniversityProjects].[WWU\swanso31].[tblUniversityPartner]"></asp:SqlDataSource>
 
                     <asp:DetailsView ID="DetailsView1" runat="server" Width="80%" AutoGenerateRows="False" DataKeyNames="ProjectID" DataSourceID="dsdDetail" HorizontalAlign="Center" GridLines="None" BorderStyle="None" CssClass="table table-striped table-hover">
                         <Fields>
@@ -87,31 +87,27 @@
                                     <asp:Label ID="Label9" runat="server" Text='<%# Bind("ProjectName") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="ClientID*" SortExpression="ClientID">
+                            <asp:TemplateField HeaderText="Client Name*" SortExpression="ClientID">
                                 <EditItemTemplate>
                                     <asp:DropDownList ID="ddlClientID" runat="server" width="500px" DataSourceID="sdsClientID" DataTextField="OrganizationName" DataValueField="ClientID" SelectedValue='<%# Bind("ClientID") %>' CssClass="form-control chosen-select"></asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Field is Required" ControlToValidate="ddlClientID"></asp:RequiredFieldValidator>
-                                    <%--<asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("ClientID") %>'></asp:TextBox>--%>
                                 </EditItemTemplate>
                                 <InsertItemTemplate>
                                     <asp:DropDownList ID="ddlClientID" runat="server" width="500px" DataSourceID="sdsClientID" DataTextField="OrganizationName" DataValueField="ClientID" SelectedValue='<%# Bind("ClientID") %>' CssClass="form-control chosen-select"></asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Field is Required" ControlToValidate="ddlClientID"></asp:RequiredFieldValidator>
-                                    <%--<asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("ClientID") %>'></asp:TextBox>--%>
                                 </InsertItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="Label4" runat="server" Text='<%# Bind("ClientID") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="WWUEntityID*" SortExpression="WWUEntityID">
+                            <asp:TemplateField HeaderText="WWU Entity*" SortExpression="WWUEntityID">
                                 <EditItemTemplate>
                                     <asp:DropDownList ID="ddlWWUID" runat="server" width="500px" DataSourceID="sdsWWUID" DataTextField="EntityName" DataValueField="WWUEntityID" SelectedValue='<%# Bind("WWUEntityID") %>' CssClass="form-control chosen-select"></asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Field is Required" ControlToValidate="ddlWWUID"></asp:RequiredFieldValidator>
-                                    <%--<asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("WWUEntityID") %>'></asp:TextBox>--%>
                                 </EditItemTemplate>
                                 <InsertItemTemplate>
                                     <asp:DropDownList ID="ddlWWUID" runat="server" width="500px" DataSourceID="sdsWWUID" DataTextField="EntityName" DataValueField="WWUEntityID" SelectedValue='<%# Bind("WWUEntityID") %>' CssClass="form-control chosen-select"></asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Field is Required" ControlToValidate="ddlWWUID"></asp:RequiredFieldValidator>
-                                    <%--<asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("WWUEntityID") %>'></asp:TextBox>--%>
                                 </InsertItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="Label5" runat="server" Text='<%# Bind("WWUEntityID") %>'></asp:Label>
@@ -120,6 +116,7 @@
                             <asp:TemplateField HeaderText="Start Of Engagement*" SortExpression="StartOfEngagement">
                                 <EditItemTemplate>
                                     <asp:TextBox ID="tbStartDate" runat="server" Text='<%# Bind("StartOfEngagement") %>' TextMode="Date" CssClass="form-control" Width="250px"></asp:TextBox>
+                                    <small><b>**Dates must be re-entered when updating a project entry</b></small>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Field is Required" ControlToValidate="tbStartDate"></asp:RequiredFieldValidator>
                                 </EditItemTemplate>
                                 <InsertItemTemplate>
@@ -133,6 +130,7 @@
                             <asp:TemplateField HeaderText="End Of Engagement*" SortExpression="EndOfEngagement">
                                 <EditItemTemplate>
                                     <asp:TextBox ID="tbEndDate" runat="server" Text='<%# Bind("EndOfEngagement") %>' TextMode="Date" CssClass="form-control" Width="250px"></asp:TextBox>
+                                    <small><b>**Dates must be re-entered when updating a project entry</b></small>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Field is Required" ControlToValidate="tbEndDate"></asp:RequiredFieldValidator>
                                 </EditItemTemplate>
                                 <InsertItemTemplate>
@@ -154,16 +152,14 @@
                                     <asp:Label ID="Label10" runat="server" Text='<%# Bind("SpecificProjectActivity") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="UniversityPartnerID*" SortExpression="UniversityPartnerID">
+                            <asp:TemplateField HeaderText="Project Partner*" SortExpression="UniversityPartnerID">
                                 <EditItemTemplate>
                                     <asp:DropDownList ID="ddlUPID" runat="server" width="500px" DataSourceID="sdsUniversityPartnerID" DataTextField="OrganizationName" DataValueField="UniversityPartnerID" SelectedValue='<%# Bind("UniversityPartnerID") %>' CssClass="form-control chosen-select"></asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Field is Required" ControlToValidate="ddlUPID"></asp:RequiredFieldValidator>
-                                    <%--<asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("UniversityPartnerID") %>'></asp:TextBox>--%>
                                 </EditItemTemplate>
                                 <InsertItemTemplate>
                                     <asp:DropDownList ID="ddlUPID" runat="server" width="500px" DataSourceID="sdsUniversityPartnerID" DataTextField="OrganizationName" DataValueField="UniversityPartnerID" SelectedValue='<%# Bind("UniversityPartnerID") %>' CssClass="form-control chosen-select"></asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Field is Required" ControlToValidate="ddlUPID"></asp:RequiredFieldValidator>
-                                    <%--<asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("UniversityPartnerID") %>'></asp:TextBox>--%>
                                 </InsertItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="Label6" runat="server" Text='<%# Bind("UniversityPartnerID") %>'></asp:Label>
@@ -230,7 +226,7 @@
                                     <asp:Label ID="Label13" runat="server" Text='<%# Bind("NumberOfStudents") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Student Hours" SortExpression="StudentHours">
+                            <asp:TemplateField HeaderText="Student Hours (Optional)" SortExpression="StudentHours">
                                 <EditItemTemplate>
                                     <asp:TextBox ID="TextBox21" runat="server" Text='<%# Bind("StudentHours") %>' CssClass="form-control" Width="250px"></asp:TextBox>
                                 </EditItemTemplate>
@@ -250,7 +246,6 @@
                                         <asp:ListItem>Service Learning</asp:ListItem>
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="Field is Required" ControlToValidate="DropDownList1"></asp:RequiredFieldValidator>
-                                    <%--<asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("ActivityType") %>'></asp:TextBox>--%>
                                 </EditItemTemplate>
                                 <InsertItemTemplate>
                                     <asp:DropDownList ID="DropDownList1" runat="server" SelectedValue='<%# Bind("ActivityType") %>' CssClass="form-control" Width="250px">
@@ -260,13 +255,12 @@
                                         <asp:ListItem>Service Learning</asp:ListItem>
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="Field is Required" ControlToValidate="DropDownList1"></asp:RequiredFieldValidator>
-                                    <%--<asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("ActivityType") %>'></asp:TextBox>--%>
                                 </InsertItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="Label3" runat="server" Text='<%# Bind("ActivityType") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:CheckBoxField DataField="ActivityFee" HeaderText="Activity requires Fee" SortExpression="ActivityFee"/>
+                            <asp:CheckBoxField DataField="ActivityFee" HeaderText="Activity requires Fee" SortExpression="ActivityFee" ControlStyle-CssClass="bigCB"/>
                             <asp:TemplateField HeaderText="Relationship Type*" SortExpression="RelationshipType">
                                 <EditItemTemplate>
                                     <asp:DropDownList ID="DropDownList2" runat="server" SelectedValue='<%# Bind("RelationshipType") %>' CssClass="form-control" Width="250px">
@@ -276,7 +270,6 @@
                                         <asp:ListItem>Long Term Contract</asp:ListItem>
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="Field is Required" ControlToValidate="DropDownList2"></asp:RequiredFieldValidator>
-                                    <%--<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("RelationshipType") %>'></asp:TextBox>--%>
                                 </EditItemTemplate>
                                 <InsertItemTemplate>
                                     <asp:DropDownList ID="DropDownList2" runat="server" SelectedValue='<%# Bind("RelationshipType") %>' CssClass="form-control" Width="250px">
@@ -286,7 +279,6 @@
                                         <asp:ListItem>Long Term Contract</asp:ListItem>
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="Field is Required" ControlToValidate="DropDownList2"></asp:RequiredFieldValidator>
-                                    <%--<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("RelationshipType") %>'></asp:TextBox>--%>
                                 </InsertItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="Label1" runat="server" Text='<%# Bind("RelationshipType") %>'></asp:Label>
@@ -300,7 +292,6 @@
                                         <asp:ListItem>On Going Contract</asp:ListItem>
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="Field is Required" ControlToValidate="DropDownList3"></asp:RequiredFieldValidator>
-                                    <%--<asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("EngagementType") %>'></asp:TextBox>--%>
                                 </EditItemTemplate>
                                 <InsertItemTemplate>
                                     <asp:DropDownList ID="DropDownList3" runat="server" SelectedValue='<%# Bind("EngagementType") %>' CssClass="form-control" Width="250px">
@@ -309,7 +300,6 @@
                                         <asp:ListItem>On Going Contract</asp:ListItem>
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="Field is Required" ControlToValidate="DropDownList3"></asp:RequiredFieldValidator>
-                                    <%--<asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("EngagementType") %>'></asp:TextBox>--%>
                                 </InsertItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="Label2" runat="server" Text='<%# Bind("EngagementType") %>'></asp:Label>
@@ -319,6 +309,8 @@
                                 <EditItemTemplate>
                                     <asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn btn-danger pull-right"></asp:LinkButton>
                                     &nbsp;<asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="True" CommandName="Update" Text="Update" CssClass="btn btn-primary pull-right"></asp:LinkButton>
+                                    <br />
+                                    <b>**Dates must be re-entered when updating a project entry</b>
                                 </EditItemTemplate>
                                 <InsertItemTemplate>
                                     <asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn btn-danger pull-right"></asp:LinkButton>
@@ -340,23 +332,23 @@
                     <h6>Click column headings to sort</h6>
                     <asp:GridView ID="GridView1" runat="server" Width="100%" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ProjectID" DataSourceID="sdsGrid" HorizontalAlign="Center" AllowSorting="True" CssClass="table-hover" GridLines="Horizontal" BorderStyle="None">
                         <Columns>
-                            <asp:CommandField ShowSelectButton="True" />
+                            <asp:CommandField ShowSelectButton="True" headerStyle-width="3%"/>
                             <asp:BoundField DataField="ProjectID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ProjectID" HeaderStyle-Width="2%" />
                             <asp:BoundField DataField="ProjectName" HeaderText="Project Name" SortExpression="ProjectName" />
                             <asp:BoundField DataField="ClientID" HeaderText="Client ID" SortExpression="ClientID" />
                             <asp:BoundField DataField="WWUEntityID" HeaderText="WWU ID" SortExpression="WWUEntityID" />
-                            <asp:BoundField DataField="StartOfEngagement" HeaderText="Start Date" SortExpression="StartOfEngagement" DataFormatString="{0:d}" />
-                            <asp:BoundField DataField="EndOfEngagement" HeaderText="End Date" SortExpression="EndOfEngagement" DataFormatString="{0:d}" />
+                            <asp:BoundField DataField="StartOfEngagement" HeaderText="Start Date" SortExpression="StartOfEngagement" DataFormatString="{0:d}" headerStyle-width="6%"/>
+                            <asp:BoundField DataField="EndOfEngagement" HeaderText="End Date" SortExpression="EndOfEngagement" DataFormatString="{0:d}" headerStyle-width="6%"/>
                             <asp:BoundField DataField="SpecificProjectActivity" HeaderText="Activity" SortExpression="SpecificProjectActivity" />
-                            <asp:BoundField DataField="UniversityPartnerID" HeaderText="U.Partner ID" SortExpression="UniversityPartnerID" />
-                            <asp:BoundField DataField="NumberOfFaculty" HeaderText="Faculty" SortExpression="NumberOfFaculty" />
-                            <asp:BoundField DataField="FacultyHours" HeaderText="Faculty Hrs" SortExpression="FacultyHours" />
-                            <asp:BoundField DataField="NumberOfStaff" HeaderText="Staff" SortExpression="NumberOfStaff" />
-                            <asp:BoundField DataField="StaffHours" HeaderText="Staff Hrs" SortExpression="StaffHours" />
-                            <asp:BoundField DataField="NumberOfStudents" HeaderText="Students" SortExpression="NumberOfStudents" />
-                            <asp:BoundField DataField="StudentHours" HeaderText="Student Hrs" SortExpression="StudentHours" />
-                            <asp:BoundField DataField="ActivityType" HeaderText="Activity Type" SortExpression="ActivityType" />
-                            <asp:CheckBoxField DataField="ActivityFee" HeaderText="Has fee?" SortExpression="ActivityFee" />
+                            <asp:BoundField DataField="UniversityPartnerID" HeaderText="Partner ID" SortExpression="UniversityPartnerID" />
+                            <asp:BoundField DataField="NumberOfFaculty" HeaderText="Faculty" SortExpression="NumberOfFaculty" HeaderStyle-Width="4%" />
+                            <asp:BoundField DataField="FacultyHours" HeaderText="Faculty Hrs" SortExpression="FacultyHours" HeaderStyle-Width="4%"/>
+                            <asp:BoundField DataField="NumberOfStaff" HeaderText="Staff" SortExpression="NumberOfStaff" HeaderStyle-Width="4%"/>
+                            <asp:BoundField DataField="StaffHours" HeaderText="Staff Hrs" SortExpression="StaffHours" HeaderStyle-Width="4%"/>
+                            <asp:BoundField DataField="NumberOfStudents" HeaderText="Students" SortExpression="NumberOfStudents" HeaderStyle-Width="4%" />
+                            <asp:BoundField DataField="StudentHours" HeaderText="Student Hrs" SortExpression="StudentHours" HeaderStyle-Width="4%"/>
+                            <asp:BoundField DataField="ActivityType" HeaderText="Activity Type" SortExpression="ActivityType" headerstyle-width="9%"/>
+                            <asp:CheckBoxField DataField="ActivityFee" HeaderText="Has fee?" SortExpression="ActivityFee" HeaderStyle-Width="4%" />
                             <asp:BoundField DataField="RelationshipType" HeaderText="RelationshipType" SortExpression="RelationshipType" />
                             <asp:BoundField DataField="EngagementType" HeaderText="EngagementType" SortExpression="EngagementType" />
                         </Columns>
