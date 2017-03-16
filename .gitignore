@@ -3,3 +3,4 @@ appSettings.config
 authorization.config
 compilation.config
 connectionStrings.config
+identity.config
